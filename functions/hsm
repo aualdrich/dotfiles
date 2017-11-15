@@ -1,9 +1,0 @@
-pg_restore_hsm(){
- pg_restore --verbose --clean --no-acl --no-owner -h localhost -d $1 $2
-}
-
-hsm_dev_reload(){
-    heroku pg:backups:download --remote production
-    pg_restore_hsm 'homeschool_minder_development' latest.dump
-    rm latest.dump
-}
