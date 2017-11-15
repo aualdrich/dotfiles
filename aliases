@@ -1,0 +1,23 @@
+alias ..='cd ..'
+
+alias dev='cd ~/dev'
+
+#rails
+alias where_is_rails='lsof -i tcp:3000'
+alias kill_rails="kill -9 $(where_is_rails | grep -v COMMAND |head -n1 |awk  '{print $2}')"
+
+alias tunnel="/Applications/ngrok http 3000 --subdomain airship"
+
+alias reload='source ~/.zshrc'
+
+#finder
+alias hf='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias sf='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+
+#git
+alias dfs="git branch | grep 'feat' | xargs git branch -D"
+alias dbs="git branch | grep 'bug' | xargs git branch -D"
+alias drs="git branch | grep 'release' | xargs git branch -D"
+
+#react native
+alias rn="react-native"

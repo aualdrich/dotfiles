@@ -1,0 +1,8 @@
+# $1 = remote name
+# $2 = local db name
+heroku pg:backups:capture --remote $1
+heroku pg:backups:download --remote $1
+
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d $2 latest.dump
+
+rm latest.dump
